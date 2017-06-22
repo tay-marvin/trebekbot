@@ -153,7 +153,7 @@ def process_answer(params)
     user_answer = params[:text]
     answered_key = "user_answer:#{channel_id}:#{current_question["id"]}:#{user_id}"
     if $redis.exists(answered_key)
-      reply = "You had your chance, #{get_slack_name(user_id)}. Let someone else answer, stop being a Robt."
+      reply = "You had your chance, #{get_slack_name(user_id)}. Let someone else answer, stop being a @Robt."
     elsif params["timestamp"].to_f > current_question["expiration"]
       if is_correct_answer?(current_answer, user_answer)
         reply = "That is correct, #{get_slack_name(user_id)}, but time's up! Remember, you have #{ENV["SECONDS_TO_ANSWER"]} seconds to answer."

@@ -363,9 +363,9 @@ def respond_with_loserboard
       leaders << "#{i + 1}. #{name}: #{score}"
     end
     if leaders.size > 0
-      response = "Let's take a look at the bottom scores:\n\n#{leaders.join("\n")}"
+      response = "Let's take a look at the bottom scores *meaning Guillaume's*:\n\n#{leaders.join("\n")}"
     else
-      response = "There are no scores yet!"
+      response = "There are no scores yet, _patience_!"
     end
     $redis.setex(key, 60*5, response)
   end
@@ -399,11 +399,11 @@ def trebek_me
     "I hate my job.",
     "Let's just get this over with. also, Tay Marvin rules.",
     "Do you have an answer? I'm not getting any younger.",
-    "I don't believe this. Where did you get that magic marker? I thought K8 frisked you on the way in here.",
+    "I don't believe this. Where did you get that magic marker? I thought k8apgar frisked you on the way in here.",
     "What a ride it has been, but boy, oh boy, these Paxonians did not know the right answers to any of the questions.",
     "Back off. I will charge you some Bitcoin if you keep that up.",
     "That is _awful_.",
-    "Okay, for the sake of tradition, let's take a look at the answers.",
+    "Okay, for the sake of tradition, let's take a look at the answers. _sigh_",
     "Beautiful. Just beautiful.",
     "Good for you. Well, as always, three perfectly good charities have been deprived of money, here on Slack Jeopardy. I'm #{ENV["BOT_USERNAME"]}, and all of you should be ashamed of yourselves! Good night!",
     "And welcome back to Slack Jeopardy. Because of what just happened before during the commercial, I'd like to apologize to all blind people and children.",
@@ -412,7 +412,7 @@ def trebek_me
     "Wonderful. Let's take a look at the categories. They are: `Potent Potables`, `Point to your own head`, `Letters or Numbers`, `Will this hurt if you put it in your mouth`, `An album cover`, `Make any noise`, and finally, `Famous Muppet Frogs`. I should add that the answer to every question in that category is `Kermit`.",
     "For the last time, that is not a category.",
     "Unbelievable.",
-    "Great. Let's take a look at the final board. And the categories are: `Potent Potables`, `Sharp Things`, `Movies That Start with the Word Jaws`, `A Petit Déjeuner` -- that category is about French phrases, so let's just skip it.",
+    "Great. Let's take a look at the final board. And the categories are: `Erica's current hair colors`, `Sharp Things`, `Movies That Start with the Word Jaws`, `A Petit Déjeuner` -- that category is about French phrases, so let's just skip it.",
     "Enough. Let's just get this over with. Here are the categories, they are: `Potent Potables`, `Countries Between Mexico and Canada`, `Members of Simon and Garfunkel`, `I Have a Chardonnay` -- you choose this category, you automatically get the points and I get to have a glass of wine -- `Things You Do With a Pencil Sharpener`, `Tie Your Shoe`, and finally, `Toast`.",
     "Better luck to all of you, in the next round. It's time for Slack Jeopardy, let's take a look at the board. And the categories are: `Potent Potables`, `Literature` -- which is just a big word for books -- `Therapists`, `Current U.S. Presidents`, `Show and Tell`, `Household Objects`, and finally, `One-Letter Words`.",
     "Uh, I see. Get back to your podium.",

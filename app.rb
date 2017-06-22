@@ -153,7 +153,7 @@ def process_answer(params)
     user_answer = params[:text]
     answered_key = "user_answer:#{channel_id}:#{current_question["id"]}:#{user_id}"
     if $redis.exists(answered_key)
-      reply = "You had your chance, #{get_slack_name(user_id)}. Let someone else answer."
+      reply = "You had your chance, #{get_slack_name(user_id)}. Let someone else answer, stop being a Robt."
     elsif params["timestamp"].to_f > current_question["expiration"]
       if is_correct_answer?(current_answer, user_answer)
         reply = "That is correct, #{get_slack_name(user_id)}, but time's up! Remember, you have #{ENV["SECONDS_TO_ANSWER"]} seconds to answer."
@@ -318,7 +318,7 @@ def get_slack_names_hash(user_id)
       names["last_name"] = user["profile"]["last_name"] unless user["profile"]["last_name"].nil? || user["profile"]["last_name"] == ""
     end
   else
-    names = { :id => user_id, :name => "Sean Connery" }
+    names = { :id => user_id, :name => "Satoshi Nakamoto" }
   end
   names
 end
@@ -396,11 +396,11 @@ def trebek_me
   [ "Welcome back to Slack Jeopardy. Before we begin this Jeopardy round, I'd like to ask our contestants once again to please refrain from using ethnic slurs.",
     "Okay, Turd Ferguson.",
     "I hate my job.",
-    "Let's just get this over with.",
-    "Do you have an answer?",
-    "I don't believe this. Where did you get that magic marker? We frisked you on the way in here.",
-    "What a ride it has been, but boy, oh boy, these Slack users did not know the right answers to any of the questions.",
-    "Back off. I don't have to take that from you.",
+    "Let's just get this over with. also, Tay Marvin rules.",
+    "Do you have an answer? I'm not getting any younger.",
+    "I don't believe this. Where did you get that magic marker? I thought K8 frisked you on the way in here.",
+    "What a ride it has been, but boy, oh boy, these Paxonians did not know the right answers to any of the questions.",
+    "Back off. I will charge you some Bitcoin if you keep that up.",
     "That is _awful_.",
     "Okay, for the sake of tradition, let's take a look at the answers.",
     "Beautiful. Just beautiful.",
@@ -420,7 +420,7 @@ def trebek_me
     "And welcome back to Slack Jeopardy. I'd like to once again remind our contestants that there are proper bathroom facilities located in the studio.",
     "Welcome back to Slack Jeopardy. Once again, I'm going to recommend that our viewers watch something else.",
     "Great. Better luck to all of you in the next round. It's time for Slack Jeopardy. Let's take a look at the board. And the categories are: `Potent Potables`, `The Vowels`, `Presidents Who Are On the One Dollar Bill`, `Famous Titles`, `Ponies`, `The Number 10`, and finally: `Foods That End In \"Amburger\"`.",
-    "Let's take a look at the board. The categories are: `Potent Potables`, `The Pen is Mightier` -- that category is all about quotes from famous authors, so you'll all probably be more comfortable with our next category -- `Shiny Objects`, continuing with `Opposites`, `Things you Shouldn't Put in Your Mouth`, `What Time is It?`, and, finally, `Months That Start With Feb`."
+    "Let's take a look at the board. The categories are: `Where is Jimmy going to lunch today`, `The Pen is Mightier` -- that category is all about quotes from famous authors, so you'll all probably be more comfortable with our next category -- `Shiny Objects`, continuing with `Opposites`, `Things you Shouldn't Put in Your Mouth`, `What Time is It?`, and, finally, `Months That Start With Feb`."
   ].sample
 end
 
@@ -430,10 +430,10 @@ end
 def respond_with_help
   reply = <<help
 Type `#{ENV["BOT_USERNAME"]} jeopardy me` to start a new round of Slack Jeopardy. I will pick the category and price. Anyone in the channel can respond.
-Type `#{ENV["BOT_USERNAME"]} [what|where|who] [is|are] [answer]?` to respond to the active round. You have #{ENV["SECONDS_TO_ANSWER"]} seconds to answer. Remember, responses must be in the form of a question, e.g. `#{ENV["BOT_USERNAME"]} what is dirt?`.
+Type `#{ENV["BOT_USERNAME"]} [what|where|who] [is|are] [answer]?` to respond to the active round. You have #{ENV["SECONDS_TO_ANSWER"]} seconds to answer. Remember, responses must be in the form of a question, e.g. `#{ENV["BOT_USERNAME"]} what in the world is Sherod Taylor doing?`.
 Type `#{ENV["BOT_USERNAME"]} what is my score` to see your current score.
 Type `#{ENV["BOT_USERNAME"]} show the leaderboard` to see the top scores.
-Type `#{ENV["BOT_USERNAME"]} show the loserboard` to see the bottom scores.
+Type `#{ENV["BOT_USERNAME"]} show the loserboard` to see the bottom scores, meaning Sherod and Erica's.
 help
   reply
 end

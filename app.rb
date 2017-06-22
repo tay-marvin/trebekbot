@@ -434,7 +434,7 @@ Type `#{ENV["BOT_USERNAME"]} jeopardy me` to start a new round of Slack Jeopardy
 Type `#{ENV["BOT_USERNAME"]} [what|where|who] [is|are] [answer]?` to respond to the active round. You have #{ENV["SECONDS_TO_ANSWER"]} seconds to answer. Remember, responses must be in the form of a question, e.g. `#{ENV["BOT_USERNAME"]} what in the world is Sherod Taylor doing?`.
 Type `#{ENV["BOT_USERNAME"]} what is my score` to see your current score.
 Type `#{ENV["BOT_USERNAME"]} show the leaderboard` to see the top scores.
-Type `#{ENV["BOT_USERNAME"]} show the loserboard` to see the bottom scores, meaning Sherod and Erica's.
+Type `#{ENV["BOT_USERNAME"]} show the loserboard` to see the bottom scores, meaning Erica's.
 help
   reply
 end
